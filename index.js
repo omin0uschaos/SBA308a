@@ -6,6 +6,7 @@ let searchDiv = document.getElementById("search-div");
 let mealList = document.getElementById("meal-list");
 let instructionDiv = document.getElementById('instruction-section');
 let selectedMealText = document.getElementById('selected-meal-text');
+let nutritionInfoText = document.getElementById('nutrition-info');
 
 // console.log(ingredientList.categories);
 
@@ -18,6 +19,7 @@ async function initialLoad() {
             searchDiv.innerHTML = ""; 
             mealList.innerHTML = "";
             selectedMealText.textContent = "";
+            nutritionInfoText.textContent = "";
             instructionDiv.textContent = 'Pick an item from the category list.';
 
             // create img and p element for each category, wrap them in a div, and append to search-div
@@ -92,7 +94,9 @@ async function updateMealList(mealCategory) {
 
             let mealName = mealItemList[i].strMeal;
             selectedMealText.textContent = mealName;
-            updateNutritionAndCost();
+            let mealId = mealItemList[i].idMeal;
+            console.log(mealId);
+            updateNutritionAndCost(mealId);
         });
         
         mealItemDiv.appendChild(mealImg);
@@ -101,7 +105,27 @@ async function updateMealList(mealCategory) {
     }
 }
 
-function updateNutritionAndCost(id){
+function updateNutritionAndCost(id) {
     instructionDiv.textContent = 'Please pay for your meal.';
+    nutritionInfoText.textContent = ""; 
+
     let mealInfo = mealInfoDb[id];
+    if (mealInfo) {
+        // Constructing the string with the nutritional information
+        let nutritionInfo = `
+            <p>Calories: ${mealInfo.Calories}<br />
+            Protein: ${mealInfo.Protein}<br />
+            Carbs: ${mealInfo.Carbs}<br />
+            Fats: ${mealInfo.Fats}<br />
+            Sugar: ${mealInfo.Sugar}</p>
+        `;
+        // <p>Price: ${mealInfo.Price}</p>
+        // Updating the innerHTML of nutritionInfoText with the constructed string
+        nutritionInfoText.innerHTML = nutritionInfo;
+
+    } else {
+        // Handling case where no nutritional info is found for the given id
+        nutritionInfoText.textContent = "Nutritional information not available.";
+    }
 }
+
