@@ -191,7 +191,6 @@ body {
     flex-direction: column;
   }
   #meal-select-section img {
-    height: 100px;
     width: 100%;
     background-color: red;
   }

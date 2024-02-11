@@ -1,4 +1,5 @@
 let searchDiv = document.getElementById("search-div");
+let mealList = document.getElementById("meal-list");
 
 // console.log(ingredientList.categories);
 
@@ -9,18 +10,25 @@ async function initialLoad() {
             const categoryList = data.categories;
             // Clear placeholder content
             searchDiv.innerHTML = ""; 
-// create img element for each category and append to search-div
+            mealList.innerHTML = "";
+
+            // create img element for each category and append to search-div
             for (let i = 0; i < categoryList.length; i++) {
                 let categoryImg = document.createElement("img");
                 categoryImg.setAttribute("src", categoryList[i].strCategoryThumb); 
                 categoryImg.setAttribute("alt", categoryList[i].strCategory); 
                 categoryImg.addEventListener("click", function(event){
-                    event.target.classList.toggle("img-selected");
+                    // Remove 'img-selected' class from all images first
+                    const allImages = searchDiv.querySelectorAll("img");
+                    allImages.forEach(img => img.classList.remove("img-selected"));
+                    
+                    //toggle 'img-selected' class only for the clicked image
+                    event.target.classList.add("img-selected");
+                    
                     let mealCategory = event.target.getAttribute("alt");
                     updateMealList(mealCategory);
                 })
                 searchDiv.appendChild(categoryImg);
-
             }
         })
         // Catch and log errors
@@ -29,11 +37,22 @@ async function initialLoad() {
 
 initialLoad();
 
-async function updateMealList(mealCategory){
-   let mealList = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`).then(response => response.json()).then(data => {
-    const mealItemList = data;
+async function updateMealList(mealCategory) {
+    let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`);
+    let data = await response.json();
+    const mealItemList = data.meals;
     console.log(mealItemList);
-   })
+
+    // Clear previous meal list content before adding new
+    mealList.innerHTML = "";
+
+    for (let i = 0; i < mealItemList.length; i++) {
+        let mealImg = document.createElement("img");
+        mealImg.setAttribute("src", mealItemList[i].strMealThumb);
+        mealImg.setAttribute("alt", mealItemList[i].strMeal);
+
+        mealList.appendChild(mealImg);
+    }
 }
 
 // 
