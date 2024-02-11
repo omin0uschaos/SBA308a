@@ -1,3 +1,7 @@
+import mealInfoDb from './mealInfo.json' assert { type: 'json' };
+
+// console.log(mealInfoDb[52764]);
+
 let searchDiv = document.getElementById("search-div");
 let mealList = document.getElementById("meal-list");
 let instructionDiv = document.getElementById('instruction-section');
@@ -97,6 +101,7 @@ async function updateMealList(mealCategory) {
     }
 }
 
-function updateNutritionAndCost(){
+function updateNutritionAndCost(id){
     instructionDiv.textContent = 'Please pay for your meal.';
+    let mealInfo = mealInfoDb[id];
 }

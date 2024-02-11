@@ -260,3 +260,23 @@ body {
     background-color: #e4f1c9;
   }
   
+  .highlight-button {
+    font-weight: bold;
+    color: #e4f1c9 !important;
+    background-color: #db345e !important;
+    animation: pulse 1s infinite;
+    cursor: pointer;
+  }
+  
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
