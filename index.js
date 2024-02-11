@@ -12,13 +12,13 @@ async function initialLoad() {
             // Clear placeholder content
             searchDiv.innerHTML = ""; 
             mealList.innerHTML = "";
-            instructionDiv.textContent = 'Choose an item from the category list.';
+            instructionDiv.textContent = 'Pick an item from the category list.';
 
             // create img and p element for each category, wrap them in a div, and append to search-div
             for (let i = 0; i < categoryList.length; i++) {
                 // Create wrapper div
                 let categoryDiv = document.createElement("div");
-                categoryDiv.classList.add("category-item"); // Optionally add a class for styling
+                categoryDiv.classList.add("category-item"); 
 
                 // Create img element
                 let categoryImg = document.createElement("img");
@@ -27,10 +27,11 @@ async function initialLoad() {
                 
                 // Create paragraph element
                 let categoryText = document.createElement("p");
-                categoryText.textContent = categoryList[i].strCategory; // Set category name as text
+                // Set category name as text
+                categoryText.textContent = categoryList[i].strCategory; 
 
-                // Add click event listener to the div (or to the img specifically if preferred)
-                categoryDiv.addEventListener("click", function(event) {
+                // Add click event listener to the div
+                categoryDiv.addEventListener("click", function() {
                     // Remove 'img-selected' class from all category divs first
                     const allCategoryDivs = searchDiv.querySelectorAll(".category-item img");
                     allCategoryDivs.forEach(img => img.classList.remove("img-selected"));
@@ -68,10 +69,26 @@ async function updateMealList(mealCategory) {
     instructionDiv.textContent = 'Choose a meal from the available meal list.';
 
     for (let i = 0; i < mealItemList.length; i++) {
+
+        let mealItemDiv = document.createElement("div");
+        mealItemDiv.classList.add("meal-item"); 
+        
         let mealImg = document.createElement("img");
         mealImg.setAttribute("src", mealItemList[i].strMealThumb);
         mealImg.setAttribute("alt", mealItemList[i].strMeal);
-
-        mealList.appendChild(mealImg);
+        let mealText = document.createElement("p");
+        mealText.textContent = mealItemList[i].strMeal; 
+        mealItemDiv.addEventListener("click", function() {
+            const allMealDivs = mealList.querySelectorAll(".meal-item img");
+            allMealDivs.forEach(img => img.classList.remove("meal-selected")); 
+        
+            mealImg.classList.add("meal-selected");
+        
+            let mealName = mealItemList[i].strMeal;
+        });
+        
+        mealItemDiv.appendChild(mealImg);
+        mealItemDiv.appendChild(mealText);
+        mealList.appendChild(mealItemDiv);
     }
 }
