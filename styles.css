@@ -174,7 +174,12 @@ body {
   #search-div img {
     height: 100px;
     width: 100px;
-    background-color: red;
+    filter: brightness(.7);
+    /* background-color: red; */
+    transition-duration: 500ms;
+  }
+  #search-div img:hover{
+    filter: brightness(1);
   }
   #meal-select-section {
     display: flex;
