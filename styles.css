@@ -280,3 +280,45 @@ body {
       transform: scale(1);
     }
   }
+
+  #upaPayModal {
+    text-align: center;
+    background-color: #aec47f;
+    width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    border: 5px solid #fffbd6;
+    box-shadow: rgba(0, 0, 0, 0.766) 0px 0px 0px 3000px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #upaPayModal label {
+    font-size: large;
+    display: block;
+    height: 50px;
+  }
+  #upaPayModal input {
+    background-color: #aec47f;
+    border: 3px solid #fffbd6;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+  }
+  #upaPayModal button {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fffbd6;
+    border: 3px solid black;
+    color: black;
+  }
+  #upaPayModal button:hover {
+    background-color: #ebe182;
+  }
+  .modal-open{
+    display: block;
+  }
+  .modal-close{
+    display: none;
+  }

@@ -125,6 +125,19 @@ function updateNutritionAndCost(id) {
         nutritionInfoText.innerHTML = nutritionInfo;
         priceInfoText.innerHTML = `${mealInfo.Price}`;
         payButton.classList.add("highlight-button")
+        payButton.addEventListener("click", function(){
+            let userUpaId;
+            do {
+                userUpaId = prompt("Please provide your unique UPA COMMS ID to successfully process payment for your chosen meal.", "Unique 6 digit key");
+                if (userUpaId === null) { // User cancelled the prompt
+                    break;
+                }
+            } while (userUpaId.length !== 6);
+
+            if (userUpaId !== null && userUpaId.length === 6) {
+                alert("UPA ID confirmed. Initiate synthesis to finalize the transaction. Credits will be deducted upon synthesis completion. Thank you for choosing UPA for your dining experience.");
+            }
+        });
 
     } else {
         // Handling case where no nutritional info is found for the given id

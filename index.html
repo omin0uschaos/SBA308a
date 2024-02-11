@@ -82,6 +82,25 @@
                       <h2>Synthesize</h2>
                       <div id="synth-button-div">
                         <button id="pay-button">Pay</button>
+                        <div id="upaPayModal">
+                            <div id="modalContent">
+                              <form id="upaForm">
+                                <label for="upaIdInput">
+                                  Please provide your unique UPA COMMS ID </label
+                                ><br />
+                                <input
+                                  type="text"
+                                  id="upaIdInput"
+                                  name="upaId"
+                                  placeholder="Unique 6 Character Key"
+                                  minlength="6"
+                                  maxlength="6"
+                                />
+                                <button id="modal-submit-button">Submit</button>
+                                <button id="modal-cancel-button">Cancel</button>
+                              </form>
+                            </div>
+                          </div>
                         <button id="synth-button">Synthesize</button>
                       </div>
                     </div>
