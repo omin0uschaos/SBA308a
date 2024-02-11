@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    font-family: 'Pixelify Sans', sans-serif;;
+  }
+  #screen-frame {
+    top: 10%;
+    width: 80vw;
+    height: 80vh;
+    position: absolute;
+    background-color: #d2c5a9;
+    border-radius: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 30px outset rgba(255, 255, 255, 0.274);
+    user-select: none;
+  }
+  
+  #screen-bevel {
+    width: 75%;
+    height: 75%;
+    border-radius: 2%;
+    border: 30px solid rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 30px;
+    border-top-color: #d6bf95;
+    border-left-color: #f5deac;
+    border-right-color: #ccbca1;
+    border-bottom-color: #dad1ba;
+    border-style: inset;
+    overflow: hidden;
+    z-index: 3;
+    box-shadow: 2px 5px 5px #eadec2;
+  }
+  #bevel-emboss {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  #screen-glass {
+    backdrop-filter: blur(1px) saturate(100%);
+    -webkit-backdrop-filter: blur(0.1px) saturate(100%);
+    /* background-color: rgba(255, 255, 255, 0.205); */
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 3;
+    background-position: center;
+    background-size: cover;
+    mix-blend-mode: screen;
+    background-image: url(./images/fingerprintglass4.jpg);
+    user-select: none;
+    pointer-events: none;
+  }
+  #content-div {
+    background-color: #3b5740;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    box-shadow: inset 0px 0px 20px 10px #3b3b3b8f;
+  }
+  
+  /*------------SCREEN-------------------*/
+  main {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    color: #061c17;
+  }
+  #content-div {
+    background-color: #3b5740;
+    width: 100%;
+    height: calc(100% - 60px);
+    z-index: 2;
+    box-shadow: inset 0px 0px 20px 10px #3b3b3b8f;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  section {
+    display: flex;
+    background-color: #aec47f;
+    border: 5px solid #fffbd6;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .section-row1,
+  .section-row2,
+  .section-row3 {
+    display: flex;
+    width: 100%;
+  }
+  .section-row1 {
+    margin-bottom: 30px;
+    flex: 1;
+    overflow: hidden;
+  }
+  .section-row2 {
+    margin-bottom: 30px;
+    flex: 3;
+    overflow: hidden;
+  }
+  .section-row3 {
+    flex: 2;
+    overflow: hidden;
+  }
+  .div-large {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+  }
+  
+  .div-small {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .div-complete {
+    width: 100%;
+  }
+  h2 {
+    margin: 0;
+    padding: 5px;
+    border-bottom: 2px solid #fffbd6;
+  }
+  
+  #title-section {
+    display: flex;
+    flex-direction: column;
+  }
+  #title-section h1 {
+    border-bottom: 2px solid #fffbd6;
+    width: 100%;
+    margin: 0;
+    padding: 0px 25px;
+    font-size:xxx-large;
+  }
+  
+  #title-section p,
+  #chosen-section p,
+  #meal-detail-section p {
+    margin: 0;
+    padding: 15px;
+    width: 100%;
+  }
+  
+
+  
+  #search-by-section {
+    display: flex;
+    flex-direction: column; /* This ensures that the title and search div are laid out vertically */
+  }
+  #search-div {
+    flex-grow: 1; /* This will make the search div expand to fill available space */
+    overflow-y: auto; /* Keeps your scrolling functionality */
+    padding: 20px; /* Adjust padding as necessary */
+    gap: 20px;
+    display: flex; /* You can adjust this to flex-start if you want the items to align at the top */
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the items horizontally */
+    align-content: start; /* Aligns items to the top */
+    scrollbar-color: #aec47f #fffbd6;
+  }
+  #search-div img {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+  }
+  #meal-select-section {
+    display: flex;
+    flex-direction: column;
+  }
+  #meal-select-section img {
+    height: 100px;
+    width: 100%;
+    background-color: red;
+  }
+  #meal-list {
+    overflow-y: auto;
+    scrollbar-color: #aec47f #fffbd6;
+  }
+  
+  #meal-detail-section {
+    display: flex;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  #nutrition-div {
+    flex: 4;
+    border-right: 5px solid #fffbd6;
+  }
+  #cost-div {
+    flex: 3;
+    border-right: 5px solid #fffbd6;
+  }
+  #synth-button-section {
+    flex: 1;
+    text-align: center;
+  }
+  #synth-button-div {
+    display: flex; /* This was missing, which is essential for applying flex properties */
+    justify-content: flex-start; /* Horizontally center align the flex items */
+    flex-direction: column; /* Stack the buttons vertically */
+    height: 100%; /* Ensure it takes full available height */
+    padding: 15px;
+  }
+  
+  #synth-button-div button {
+    color: #061c17;
+    background-color: #aec47f;
+    border: 5px solid #fffbd6;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 100%;
+    transition-duration: 500ms;
+  }
+  #synth-button-div button:hover{
+    background-color: #e4f1c9;
+  }
+  
