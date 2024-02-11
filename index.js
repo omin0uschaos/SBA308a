@@ -12,6 +12,7 @@ async function initialLoad() {
             // Clear placeholder content
             searchDiv.innerHTML = ""; 
             mealList.innerHTML = "";
+            instructionDiv.textContent = 'Choose an item from the category list.';
 
             // create img and p element for each category, wrap them in a div, and append to search-div
             for (let i = 0; i < categoryList.length; i++) {
@@ -63,6 +64,8 @@ async function updateMealList(mealCategory) {
 
     // Clear previous meal list content before adding new
     mealList.innerHTML = "";
+
+    instructionDiv.textContent = 'Choose a meal from the available meal list.';
 
     for (let i = 0; i < mealItemList.length; i++) {
         let mealImg = document.createElement("img");
