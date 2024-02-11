@@ -7,6 +7,8 @@ let mealList = document.getElementById("meal-list");
 let instructionDiv = document.getElementById('instruction-section');
 let selectedMealText = document.getElementById('selected-meal-text');
 let nutritionInfoText = document.getElementById('nutrition-info');
+let priceInfoText = document.getElementById('price-total-text');
+let payButton = document.getElementById('pay-button');
 
 // console.log(ingredientList.categories);
 
@@ -119,13 +121,15 @@ function updateNutritionAndCost(id) {
             Fats: ${mealInfo.Fats}<br />
             Sugar: ${mealInfo.Sugar}</p>
         `;
-        // <p>Price: ${mealInfo.Price}</p>
         // Updating the innerHTML of nutritionInfoText with the constructed string
         nutritionInfoText.innerHTML = nutritionInfo;
+        priceInfoText.innerHTML = `${mealInfo.Price}`;
+        payButton.classList.add("highlight-button")
 
     } else {
         // Handling case where no nutritional info is found for the given id
         nutritionInfoText.textContent = "Nutritional information not available.";
+
     }
 }
 
