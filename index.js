@@ -1,6 +1,7 @@
 let searchDiv = document.getElementById("search-div");
 let mealList = document.getElementById("meal-list");
 let instructionDiv = document.getElementById('instruction-section');
+let selectedMealText = document.getElementById('selected-meal-text');
 
 // console.log(ingredientList.categories);
 
@@ -12,6 +13,7 @@ async function initialLoad() {
             // Clear placeholder content
             searchDiv.innerHTML = ""; 
             mealList.innerHTML = "";
+            selectedMealText.textContent = "";
             instructionDiv.textContent = 'Pick an item from the category list.';
 
             // create img and p element for each category, wrap them in a div, and append to search-div
@@ -83,12 +85,18 @@ async function updateMealList(mealCategory) {
             allMealDivs.forEach(img => img.classList.remove("meal-selected")); 
         
             mealImg.classList.add("meal-selected");
-        
+
             let mealName = mealItemList[i].strMeal;
+            selectedMealText.textContent = mealName;
+            updateNutritionAndCost();
         });
         
         mealItemDiv.appendChild(mealImg);
         mealItemDiv.appendChild(mealText);
         mealList.appendChild(mealItemDiv);
     }
+}
+
+function updateNutritionAndCost(){
+    instructionDiv.textContent = 'Please pay for your meal.';
 }
