@@ -181,6 +181,11 @@ body {
   #search-div img:hover{
     filter: brightness(1);
   }
+  .img-selected{
+    background-color: #fffbd6b8;
+    border-radius: 50%;
+    filter: brightness(1) !important;
+  }
   #meal-select-section {
     display: flex;
     flex-direction: column;
