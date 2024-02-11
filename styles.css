@@ -70,7 +70,7 @@ body {
     justify-content: center;
     background-color: #000000;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
     color: #061c17;
   }
   #content-div {
@@ -158,17 +158,17 @@ body {
   
   #search-by-section {
     display: flex;
-    flex-direction: column; /* This ensures that the title and search div are laid out vertically */
+    flex-direction: column; 
   }
   #search-div {
-    flex-grow: 1; /* This will make the search div expand to fill available space */
-    overflow-y: auto; /* Keeps your scrolling functionality */
-    padding: 20px; /* Adjust padding as necessary */
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding: 20px; 
     gap: 20px;
-    display: flex; /* You can adjust this to flex-start if you want the items to align at the top */
+    display: flex; 
     flex-wrap: wrap;
-    justify-content: center; /* Centers the items horizontally */
-    align-content: start; /* Aligns items to the top */
+    justify-content: center; 
+    align-content: start; 
     scrollbar-color: #aec47f #fffbd6;
   }
   #search-div img {
@@ -210,10 +210,10 @@ body {
     text-align: center;
   }
   #synth-button-div {
-    display: flex; /* This was missing, which is essential for applying flex properties */
-    justify-content: flex-start; /* Horizontally center align the flex items */
-    flex-direction: column; /* Stack the buttons vertically */
-    height: 100%; /* Ensure it takes full available height */
+    display: flex; 
+    justify-content: flex-start; 
+    flex-direction: column; 
+    height: 100%; 
     padding: 15px;
   }
   
