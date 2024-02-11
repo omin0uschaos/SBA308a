@@ -150,8 +150,7 @@ body {
   #chosen-section p,
   #meal-detail-section p {
     margin: 0;
-    padding: 15px;
-    width: 100%;
+    padding: 10px;
   }
   
 
@@ -172,14 +171,18 @@ body {
     scrollbar-color: #aec47f #fffbd6;
   }
   #search-div img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     filter: brightness(.7);
     /* background-color: red; */
     transition-duration: 500ms;
   }
   #search-div img:hover{
     filter: brightness(1);
+  }
+  #search-div p{
+    text-align: center;
+    margin: 0;
   }
   .img-selected{
     background-color: #fffbd6b8;
