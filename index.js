@@ -150,6 +150,28 @@ function updateNutritionAndCost(id) {
                     var synthAudio = new Audio('./audio/synthesize.mp3');
                     synthAudio.play();
                     payModalWindow.innerHTML = "<h1>Your culinary creation awaits! Indulge in the sumptuous delight meticulously crafted for your enjoyment.<br /><br /> Bon Appétit!</h1>";
+
+                    const orderData = {
+                        "id": userUpaId,
+                        "meal": selectedMealText.textContent
+                    };
+                    // Send the data to the server
+                    fetch("https://reqres.in/api/users", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: userUpaId,
+                            meals: [selectedMealText.textContent]
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => console.error('Error:', error));
+
                     setTimeout(()=>{
                         location.reload();
                     }, 8000);
@@ -168,7 +190,7 @@ function updateNutritionAndCost(id) {
         document.getElementById('modal-cancel-button').addEventListener('click', function(event) {
             event.preventDefault();
             let errorMessageSpan = document.getElementById('error-message-span');
-            errorMessageSpan.textContent = ""
+            errorMessageSpan.textContent = "";
             payModalWindow.classList.add('modal-close');
         });
         
