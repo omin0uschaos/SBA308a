@@ -9,6 +9,8 @@ let selectedMealText = document.getElementById('selected-meal-text');
 let nutritionInfoText = document.getElementById('nutrition-info');
 let priceInfoText = document.getElementById('price-total-text');
 let payButton = document.getElementById('pay-button');
+let synthButton = document.getElementById('synth-button');
+let payModalWindow = document.getElementById("upaPayModal");
 
 // console.log(ingredientList.categories);
 
@@ -125,19 +127,45 @@ function updateNutritionAndCost(id) {
         nutritionInfoText.innerHTML = nutritionInfo;
         priceInfoText.innerHTML = `${mealInfo.Price}`;
         payButton.classList.add("highlight-button")
-        payButton.addEventListener("click", function(){
-            let userUpaId;
-            do {
-                userUpaId = prompt("Please provide your unique UPA COMMS ID to successfully process payment for your chosen meal.", "Unique 6 digit key");
-                if (userUpaId === null) { // User cancelled the prompt
-                    break;
-                }
-            } while (userUpaId.length !== 6);
 
-            if (userUpaId !== null && userUpaId.length === 6) {
-                alert("UPA ID confirmed. Initiate synthesis to finalize the transaction. Credits will be deducted upon synthesis completion. Thank you for choosing UPA for your dining experience.");
+        payButton.addEventListener('click', function() {
+            // Show the modal by removing the 'modal-close' class
+            payModalWindow.classList.remove('modal-close');
+        });
+        
+        document.getElementById('modal-submit-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the form from submitting in the traditional way
+        
+            let userUpaId = document.getElementById('upaIdInput').value;
+        
+            if (userUpaId.length === 6) {
+                console.log("UPA ID confirmed. Processing payment...");
+                // Close the modal
+                payModalWindow.classList.add('modal-close');
+                payButton.classList.remove("highlight-button");
+                synthButton.classList.add("highlight-button");
+                synthButton.addEventListener("click", function(){
+                    confirm("Your culinary creation awaits! Indulge in the sumptuous delight meticulously crafted for your enjoyment. Bon Appétit!");
+                    location.reload();
+                })
+            } else {
+                // Invalid UPA ID, show an error message
+                let errorMessageSpan = getElementById('error-message-span');
+                errorMessageSpan.textContent = "Invalid UPA COMMS ID. Please ensure it's a 6-character key.";
+                setTimeout(() => {
+                    errorMessageSpan.textContent = "";
+                }, 3000);
             }
         });
+        
+        document.getElementById('modal-cancel-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            let errorMessageSpan = getElementById('error-message-span');
+            errorMessageSpan.textContent = ""
+            payModalWindow.classList.add('modal-close');
+        });
+        
+
 
     } else {
         // Handling case where no nutritional info is found for the given id

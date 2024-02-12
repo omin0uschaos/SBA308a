@@ -82,19 +82,22 @@
                       <h2>Synthesize</h2>
                       <div id="synth-button-div">
                         <button id="pay-button">Pay</button>
-                        <div id="upaPayModal">
+                        <div id="upaPayModal" class="modal-close">
                             <div id="modalContent">
                               <form id="upaForm">
                                 <label for="upaIdInput">
                                   Please provide your unique UPA COMMS ID </label
                                 ><br />
+                                <span id="error-message-span"></span>
                                 <input
-                                  type="text"
-                                  id="upaIdInput"
-                                  name="upaId"
-                                  placeholder="Unique 6 Character Key"
-                                  minlength="6"
-                                  maxlength="6"
+                                    type="text"
+                                    id="upaIdInput"
+                                    name="upaId"
+                                    placeholder="Unique 6 Character Key"
+                                    minlength="6"
+                                    maxlength="6"
+                                    oninvalid="this.setCustomValidity('Invalid UPA ID')" 
+                                    onchange="this.setCustomValidity('')"
                                 />
                                 <button id="modal-submit-button">Submit</button>
                                 <button id="modal-cancel-button">Cancel</button>
