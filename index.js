@@ -1,5 +1,22 @@
-import mealInfoDb from './mealInfo.json' assert { type: 'json' };
+// import mealInfoDb from './mealInfo.json' assert { type: 'json' };
+import { randomFlicker } from "./scripts/flicker.js";
+randomFlicker();
 
+fetch('./mealInfo.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Assign the JSON data to the mealInfoDb variable
+    window.mealInfoDb = data;
+    // console.log('mealInfoDb:', mealInfoDb);
+  })
+  .catch(error => {
+    console.error('There was a problem fetching the meal info:', error);
+  });
 // console.log(mealInfoDb[52764]);
 
 let searchDiv = document.getElementById("search-div");
@@ -73,7 +90,7 @@ async function updateMealList(mealCategory) {
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`);
     let data = await response.json();
     const mealItemList = data.meals;
-    console.log(mealItemList);
+    // console.log(mealItemList);
 
     // Clear previous meal list content before adding new
     mealList.innerHTML = "";

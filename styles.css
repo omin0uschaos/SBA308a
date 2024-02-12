@@ -154,7 +154,9 @@ body {
     font-size:3vh;
   }
   @media (max-height: 800px) {
-
+    #title-section h1{
+        font-size: x-large;
+    } 
   }
   
   #title-section p,
@@ -341,3 +343,15 @@ body {
     max-height: 50px;
     width: auto;
 }
+
+@keyframes flickerAnimation {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(50%); }
+    100% { filter: brightness(100%); }
+  }
+  
+  .flicker {
+    animation-name: flickerAnimation;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-out;
+  }
