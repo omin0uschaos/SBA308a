@@ -167,7 +167,7 @@ function updateNutritionAndCost(id) {
         
         document.getElementById('modal-cancel-button').addEventListener('click', function(event) {
             event.preventDefault();
-            let errorMessageSpan = getElementById('error-message-span');
+            let errorMessageSpan = document.getElementById('error-message-span');
             errorMessageSpan.textContent = ""
             payModalWindow.classList.add('modal-close');
         });
