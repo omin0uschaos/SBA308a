@@ -193,7 +193,7 @@ function updateNutritionAndCost(id) {
                     })
                     .then(response => response.json())
                     .then(response => {
-                        // console.log(response);
+                        console.log(response);
                     })
                     .catch(error => console.error('Error:', error));
 

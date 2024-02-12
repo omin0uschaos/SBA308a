@@ -157,6 +157,20 @@ body {
     #title-section h1{
         font-size: x-large;
     } 
+
+  }
+  @media (max-height:950px){
+    #screen-frame{
+        top:0;
+    }
+  }
+  @media (max-width: 1200px) {
+    #title-section h1{
+        font-size: x-large;
+    } 
+    h2{
+        font-size: medium;
+    }
   }
   
   #title-section p,
@@ -209,7 +223,7 @@ body {
     flex-direction: column;
   }
   #meal-select-section img {
-    height: 300px;
+
     width: 100%;
     /* background-color: red; */
 
