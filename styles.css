@@ -1,9 +1,10 @@
 body {
     margin: 0;
     display: flex;
-    justify-content: center;
     background-color: #000000;
-    font-family: 'Pixelify Sans', sans-serif;;
+    font-family: 'Pixelify Sans', sans-serif;
+    justify-content: center;
+    height: 100%;
   }
   #screen-frame {
     top: 10%;
@@ -17,8 +18,15 @@ body {
     justify-content: center;
     border: 30px outset rgba(255, 255, 255, 0.274);
     user-select: none;
+    min-height: 800px;
+
   }
-  
+  @media (max-width: 768px) {
+    #screen-frame {
+        width: 90vw;
+        height: 90vh;
+    }
+}
   #screen-bevel {
     width: 75%;
     height: 75%;
@@ -143,7 +151,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0px 25px;
-    font-size:xxx-large;
+    font-size:3vh;
   }
   
   #title-section p,
@@ -252,7 +260,7 @@ body {
     border: 5px solid #fffbd6;
     padding: 10px;
     border-radius: 5px;
-    margin: 10px auto;
+    margin: 2px auto;
     width: 100%;
     transition-duration: 500ms;
   }
