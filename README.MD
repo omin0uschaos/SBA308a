@@ -1,6 +1,6 @@
 # UPA Food Synthesizer
 
-Welcome to the UPA Food Synthesizer, a futuristic culinary adventure inspired by the most innovative science fiction and the nostalgic charm of retro gadgets from the '90s. This project represents not just a leap into the world of tomorrow but also a nod to the past, blending the two into a unique digital experience.
+I present to you, the UPA Food Synthesizer, a futuristic culinary adventure inspired by the most innovative science fiction and the nostalgic charm of retro gadgets from the '90s. This project represents not just a leap into the world of tomorrow but also a nod to the past, blending the two into a unique digital experience.
 
 ## Inspiration
 
@@ -31,4 +31,4 @@ The journey doesn't end here. The UPA Food Synthesizer is poised for further dev
 
 ---
 
-"Feeding the universe, one pixel at a time. Welcome to the UPA Food Synthesizer—where the meals of tomorrow are at your fingertips today."
+"Feeding the universe, one meal at a time. The UPA Food Synthesizer — the meals of tomorrow at your fingertips today."
