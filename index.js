@@ -1,6 +1,14 @@
 // import mealInfoDb from './mealInfo.json' assert { type: 'json' };
 import { randomFlicker } from "./scripts/flicker.js";
-randomFlicker();
+function startFlickering() {
+    document.removeEventListener('click', startFlickering);
+    document.removeEventListener('keypress', startFlickering);
+    randomFlicker();
+  }
+  
+  // Add event listeners for the initial user interaction
+  document.addEventListener('click', startFlickering);
+  document.addEventListener('keypress', startFlickering);
 
 fetch('./mealInfo.json')
   .then(response => {

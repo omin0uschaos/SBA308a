@@ -5,6 +5,7 @@ export function randomFlicker() {
   screenFrame.classList.add('flicker');
   var flickerAudio = new Audio('./audio/eflicker.mp3');
   flickerAudio.play();
+
   // Remove the flicker class after a short delay
   setTimeout(() => {
     screenFrame.classList.remove('flicker');
