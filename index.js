@@ -73,7 +73,7 @@ async function updateMealList(mealCategory) {
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`);
     let data = await response.json();
     const mealItemList = data.meals;
-    console.log(mealItemList);
+    // console.log(mealItemList);
 
     // Clear previous meal list content before adding new
     mealList.innerHTML = "";
@@ -99,7 +99,7 @@ async function updateMealList(mealCategory) {
             let mealName = mealItemList[i].strMeal;
             selectedMealText.textContent = mealName;
             let mealId = mealItemList[i].idMeal;
-            console.log(mealId);
+            // console.log(mealId);
             updateNutritionAndCost(mealId);
         });
         
@@ -168,7 +168,7 @@ function updateNutritionAndCost(id) {
                     })
                     .then(response => response.json())
                     .then(response => {
-                        console.log(response);
+                        // console.log(response);
                     })
                     .catch(error => console.error('Error:', error));
 
