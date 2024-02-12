@@ -153,6 +153,9 @@ body {
     padding: 0px 25px;
     font-size:3vh;
   }
+  @media (max-height: 800px) {
+
+  }
   
   #title-section p,
   #chosen-section p,

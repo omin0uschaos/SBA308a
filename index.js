@@ -73,7 +73,7 @@ async function updateMealList(mealCategory) {
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${mealCategory}`);
     let data = await response.json();
     const mealItemList = data.meals;
-    // console.log(mealItemList);
+    console.log(mealItemList);
 
     // Clear previous meal list content before adding new
     mealList.innerHTML = "";
