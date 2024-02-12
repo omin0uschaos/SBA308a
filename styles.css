@@ -167,6 +167,12 @@ body {
     #screen-frame{
         top:0;
     }
+
+  }
+  @media (max-height: 1080px){
+    #bottom-logo {
+        bottom: 10px !important;
+    }
   }
   @media (max-width: 1200px) {
     #title-section h1{
@@ -236,7 +242,7 @@ body {
     position: relative;
     text-align: center;
     margin: 0;
-    top: -40px;
+    top: -50px;
     background-color: #fffbd6;
 
   }
