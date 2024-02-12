@@ -134,7 +134,7 @@ function updateNutritionAndCost(id) {
         });
         
         document.getElementById('modal-submit-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the form from submitting in the traditional way
+            event.preventDefault(); // Prevent the form from submitting
         
             let userUpaId = document.getElementById('upaIdInput').value;
         
@@ -145,12 +145,19 @@ function updateNutritionAndCost(id) {
                 payButton.classList.remove("highlight-button");
                 synthButton.classList.add("highlight-button");
                 synthButton.addEventListener("click", function(){
-                    confirm("Your culinary creation awaits! Indulge in the sumptuous delight meticulously crafted for your enjoyment. Bon Appétit!");
-                    location.reload();
+                    payModalWindow.innerHTML = "";
+                    payModalWindow.classList.remove('modal-close');
+                    var synthAudio = new Audio('./audio/synthesize.mp3');
+                    synthAudio.play();
+                    payModalWindow.innerHTML = "<h1>Your culinary creation awaits! Indulge in the sumptuous delight meticulously crafted for your enjoyment.<br /><br /> Bon Appétit!</h1>";
+                    setTimeout(()=>{
+                        location.reload();
+                    }, 8000);
+
                 })
             } else {
                 // Invalid UPA ID, show an error message
-                let errorMessageSpan = getElementById('error-message-span');
+                let errorMessageSpan = document.getElementById('error-message-span');
                 errorMessageSpan.textContent = "Invalid UPA COMMS ID. Please ensure it's a 6-character key.";
                 setTimeout(() => {
                     errorMessageSpan.textContent = "";

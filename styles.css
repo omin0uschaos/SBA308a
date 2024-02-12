@@ -316,9 +316,9 @@ body {
   #upaPayModal button:hover {
     background-color: #ebe182;
   }
-  .modal-open{
-    display: block;
-  }
   .modal-close{
     display: none;
+  }
+  #error-message-span {
+    color: #db345e;
   }
