@@ -14,7 +14,7 @@ export function randomFlicker() {
   }, 100); 
 
   // Wait for a random time before flickering again
-  const nextFlicker = Math.random() * 8000;
+  const nextFlicker = Math.random() * 9000;
   setTimeout(randomFlicker, nextFlicker);
 
   
